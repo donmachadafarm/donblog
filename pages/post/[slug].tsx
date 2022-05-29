@@ -20,6 +20,7 @@ interface IFormInput{
 
 function Post({post}: Props) {
   const [submitted,setSubmitted] = useState(false)
+  const [commented,setCommented] = useState(false)
   const { register, handleSubmit, formState: {errors} } = useForm<IFormInput>()
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
@@ -116,12 +117,12 @@ function Post({post}: Props) {
       <div className='flex flex-col p-10 my-10 max-w-2xl mx-auto shadow-gray-500 space-y-2 shadow rounded'>
         <h3 className='text-3xl'>Approved Comments</h3>
         <hr className='pb-2'/>
-
-        {post.comments.map((comment) => (
+        
+        {post.comments.length > 0 ? (post.comments.map((comment:any) => (
           <div key={comment._id}>
             <p><span className='text-gray-500'>{comment.name}</span> : {comment.comment}</p>
           </div>
-        ))}
+        ))): (<h1>No comments yet . . . </h1>)}
       </div>
 
     </main>
@@ -184,6 +185,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       notFound: true
     }
   }
+
 
   return {
     props: {
