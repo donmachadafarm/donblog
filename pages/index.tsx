@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Header from '../components/Header'
 import { sanityClient,urlFor } from '../sanity'
-import { Post } from '../typings'
+import { Post } from '../typings' 
 
 interface Props {
   posts: [Post]
@@ -26,7 +26,7 @@ export default function Home({posts}: Props) {
           <h2>It's easy to just post your shitty thoughts for random strangers to see!</h2>
         </div>
         
-        <img className='hidden md:inline-flex h-32 lg:h-52 pr-10' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/LetterD.svg/800px-LetterD.svg.png" alt="" />
+        <img className='hidden md:inline-flex h-32 lg:h-52 pr-10 mt-10' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/LetterD.svg/800px-LetterD.svg.png" alt="" />
       </div>
 
 
